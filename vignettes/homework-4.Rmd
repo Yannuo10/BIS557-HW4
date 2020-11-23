@@ -1,6 +1,6 @@
 ---
 title: "homework-4"
-output: rmarkdown::html_vignette
+output: rmarkdown::pdf_document
 vignette: >
   %\VignetteIndexEntry{homework-4}
   %\VignetteEngine{knitr::rmarkdown}

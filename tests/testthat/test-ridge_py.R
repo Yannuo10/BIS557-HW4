@@ -1,52 +1,29 @@
 library(testthat)
 library(reticulate)
-context("Test the output of lasso().")
+context("Test the output of ridge_py().")
 
-
-
-test_that("You lasso() function works in an easy case.", {
+test_that("You ridge() function works in an easy case.", {
 
   data(iris)
 
-  form <- Sepal.Length ~ .; df <- iris
+  fit_r <- ridge(Sepal.Length ~ .- Species, iris, lambda = 1)
 
-  df_no_na <- model.frame(form, df)
+  fit_py <- ridge_py(Sepal.Length  ~ .- Species, iris, lambda = 1)
 
-  X0 <- qr.Q(qr(model.matrix(form, df_no_na)))
-
-  yname <- as.character(form)[2]
-
-  y0 <- matrix(df_no_na[,yname],ncol = 1)
-
-  fit_casl <- casl_lenet(X0, y0, lambda = 0.01, maxit = 1e5)
-
-  fit_py <- lasso(Sepal.Length  ~ ., iris, lambda = 0.01)
-
-  expect_equivalent(as.vector(fit_casl), as.vector(fit_py$coefficients),
-                    tolerance = 1e-4)
+  expect_equivalent(fit_r$coefficients, fit_py$coefficients,
+                    tolerance = 0.01)
 })
 
-
-
-test_that("You lasso() function works with contrasts.", {
+test_that("Your ridge() function works with contrasts.", {
 
   data(iris)
 
-  form <- Sepal.Length ~ .; df <- iris
+  fit_r <- ridge(Sepal.Length ~ .- Species, iris,
+                 contrasts = list(Species = "contr.sum"), lambda = 0.5)
 
-  df_no_na <- model.frame(form, df)
+  fit_py <- ridge_py(Sepal.Length  ~ .- Species, iris, contrasts = list(Species = "contr.sum"), lambda = 0.5)
 
-  X0 <- qr.Q(qr(model.matrix(form, df_no_na, contrasts.arg = list(Species = "contr.sum"))))
-
-  yname <- as.character(form)[2]
-
-  y0 <- matrix(df_no_na[,yname],ncol = 1)
-
-  fit_casl <- casl_lenet(X0, y0, lambda = 0.01, maxit = 1e5)
-
-  fit_py <- lasso(Sepal.Length  ~ ., iris, lambda = 0.01, contrasts = list(Species = "contr.sum"))
-
-  expect_equivalent(as.vector(fit_casl), as.vector(fit_py$coefficients),
-                    tolerance = 1e-4)
+  expect_equivalent(fit_r$coefficients, fit_py$coefficients,
+                    tolerance = 0.01)
 })
 
