@@ -13,19 +13,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bis557
+# BIS557
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/Yannuo10/bis557.svg?branch=master)](https://travis-ci.com/Yannuo10/bis557)
-[![Coveralls test coverage](https://coveralls.io/repos/github/Yannuo10/bis557/badge.svg)](https://coveralls.io/r/Yannuo10/bis557?branch=master)
+[![Travis build status](https://travis-ci.org/Yannuo10/BIS557-HW4.svg?branch=master)](https://travis-ci.org/Yannuo10/BIS557-HW4)
 <!-- badges: end -->
 
-The goal of bis557 is to build linear models using two different ways.
+The goal of BIS557 is to implement functions for Homework 4.
 
 ## Installation
 
-You can install the released version of bis557 from [GitHub](https://github.com) with:
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-install.packages("bis557")
+# install.packages("devtools")
+devtools::install_github("Yannuo10/BIS557-HW4")
 ```
