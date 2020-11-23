@@ -20,5 +20,5 @@ another way to build a linear model. ridge regression for ordinary least squares
 }
 \examples{
 data(iris)
-fit_linear_model <- ridge(Sepal.Length ~ ., iris, contrasts = list(Species = "contr.sum"), lambda = 0.1)
+fit_linear_model <- ridge(Sepal.Length ~ ., iris, lambda = 0.1)
 }

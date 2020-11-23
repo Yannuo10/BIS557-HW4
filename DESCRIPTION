@@ -20,11 +20,7 @@ Suggests:
     rmarkdown,
     Matrix,
     MASS,
-    doParallel,
-    foreach,
-    glmnet,
     purrr,
-    rsample,
     tibble
 Imports:
     stats,

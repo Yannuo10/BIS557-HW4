@@ -7,7 +7,7 @@
 #' @examples
 #' data(iris)
 #' library(reticulate)
-#' fit_linear_model <- ridge_py(Sepal.Length ~ .- Species, iris, contrasts = list(Species = "contr.sum"), lambda = 0.1)
+#' fit_linear_model <- ridge_py(Sepal.Length ~ .- Species, iris, lambda = 0.1)
 #' @export
 
 ridge_py <- function(form, df, contrasts = NULL, lambda = 0){
