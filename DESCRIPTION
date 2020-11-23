@@ -1,0 +1,39 @@
+Package: BIS557
+Title: Homework 1
+Version: 0.0.1
+Authors@R: 
+    person(given = "Chloe",
+           family = "Jiang",
+           role = c("aut", "cre"),
+           email = "chloe.jiang@yale.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Two ways of building linear models.
+License: LGPL (>= 2.1)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat,
+    covr,
+    knitr,
+    rmarkdown,
+    Matrix,
+    MASS,
+    doParallel,
+    foreach,
+    glmnet,
+    purrr,
+    rsample,
+    tibble,
+Imports:
+    stats,
+    rsample,
+    devtools,
+    reticulate,
+    casl
+Depends: 
+    R (>= 2.10)
+VignetteBuilder: knitr
+Remotes:
+   github::statsmaths/casl
